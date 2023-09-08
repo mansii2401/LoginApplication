@@ -1,4 +1,5 @@
-﻿using LoginApplication.Models.DTO;
+﻿using LoginApplication.Models.Domain;
+using LoginApplication.Models.DTO;
 using LoginApplication.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,11 +10,11 @@ namespace LoginApplication.Services
     {
         UserLoginRepository userloginrepo = new UserLoginRepository();
 
-        public ActionResult<Response<UserLogin>> LoginUser(UserLogin userlogin)
+        public ActionResult<Response<UserDetails>> LoginUser(UserLogin userlogin)
         {
             if (userlogin == null)
             {
-                return new Response<UserLogin>
+                return new Response<UserDetails>
                 {
                     ErrorMessage = "User credentials provided doesnot exist"
                 };

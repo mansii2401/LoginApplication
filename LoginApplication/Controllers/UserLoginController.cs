@@ -1,4 +1,5 @@
-﻿using LoginApplication.Models.DTO;
+﻿using LoginApplication.Models.Domain;
+using LoginApplication.Models.DTO;
 using LoginApplication.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +15,7 @@ namespace LoginApplication.Controllers
         UserLoginService userloginservice = new UserLoginService();
 
         [HttpPost]
-        public ActionResult<Response<UserLogin>> LoginUser(UserLogin userlogin)
+        public ActionResult<Response<UserDetails>> LoginUser(UserLogin userlogin)
         {
             return userloginservice.LoginUser(userlogin);
 

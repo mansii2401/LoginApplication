@@ -9,23 +9,26 @@ namespace LoginApplication.Repositories
     {
 
 
-        public ActionResult<Response<UserLogin>> LoginUser(UserLogin userlogin)
+        public ActionResult<Response<UserDetails>> LoginUser(UserLogin userlogin)
         {
-            string ReadAllUser = File.ReadAllText(@"C:\Users\mansi\source\repos\LoginApplication\LoginApplication\JSON Data\UserDetails.json");
-            var UserUpdated = JsonSerializer.Deserialize<List<User>>(ReadAllUser);
+            string ReadAllUser = File.ReadAllText(@"JSON Data/UserEntry.json");
+            var userEntry = JsonSerializer.Deserialize<List<User>>(ReadAllUser);
 
-            var usercheck = (from e in UserUpdated where e.UserName.Equals(userlogin.UserName) select e).Count();
-            if (usercheck > 0)
+            var userDetails = JsonSerializer.Deserialize<List<UserDetails>>(File.ReadAllText(@"JSON Data/UserDetails.json"));
+
+            var usercheck = (from e in userEntry where e.UserName.Equals(userlogin.UserName) where e.Password.Equals(userlogin.Password) select e).ToList();
+            if (usercheck.Count > 0)
             {
-                return new Response<UserLogin>
+                return new Response<UserDetails>
                 {
+                    Result = userDetails.FirstOrDefault(x=>x.UserId == usercheck[0].UserId) ?? new UserDetails(),
                     StatusMessage = "User login successfull"
                 };
             }
             else
             {
 
-                return new Response<UserLogin>
+                return new Response<UserDetails>
                 {
                     StatusMessage = "User credentials does not exist"
                 };
