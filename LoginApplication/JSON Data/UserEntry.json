@@ -1,0 +1,49 @@
+[
+  {
+    "UserId": 1,
+    "UserName": "Mansi@123",
+    "Password": "Mansi123"
+  },
+  {
+    "UserId": 2,
+    "UserName": "Mishu@123",
+    "Password": "Mishu123"
+  },
+  {
+    "UserId": 3,
+    "UserName": "Kabita@123",
+    "Password": "Kabita123"
+  },
+  {
+    "UserId": 4,
+    "UserName": "Siyali@123",
+    "Password": "Siyali123"
+  },
+  {
+    "UserId": 5,
+    "UserName": "Shalini@123",
+    "Password": "Shalini123"
+  },
+  {
+    "UserId": 6,
+    "UserName": "Palak@123",
+    "Password": "Palak123"
+  },
+  {
+    "UserId": 7,
+    "UserName": "Leena@123",
+    "Password": "Leena123"
+  },
+  {
+    "UserId": 8,
+    "UserName": "Akansha@123",
+    "Password": "Akansha123"
+  },
+
+  {
+    "UserId": 9,
+    "UserName": "Vinita@123",
+    "Password": "Vinita123"
+  }
+
+]
